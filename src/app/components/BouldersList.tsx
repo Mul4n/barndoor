@@ -5,7 +5,7 @@ import { Add, Delete, Edit } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 
 export function BouldersList() {
-  const boulders = useBoulders();
+  const boulders: Boulder[] = useBoulders();
   return (<>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -28,16 +28,17 @@ export function BouldersList() {
   </>);
 }
 
-function BoulderHeader({ boulder: { name, grade, id } }) {
+function BoulderHeader({ boulder }: { boulder: Boulder }) {
+  const { name, grade, id } = boulder;
   const dispatch = useBouldersDispatch();
   const router = useRouter();
 
-  const handleEdit = () => router.push(`/boulder/${id}`)
-  const handleDelete = () => dispatch({ type: 'deleted', id });
+  const handleEdit = () => router.push(`/boulder/${boulder.id}`)
+  const handleDelete = () => dispatch({ type: 'deleted', boulder });
 
   return (
     <TableRow
-      key={name}
+      key={`boulder-${id}`}
       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
     >
       <TableCell className='cursor-pointer hover:bg-slate-400 hover:transition-all' onClick={() => router.push(`/boulder/${id}`)} component="th" scope="boulder">
