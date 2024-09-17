@@ -37,10 +37,11 @@ export function BouldersList() {
 
   return (<>
     <AppBar position="static">
-      <Toolbar variant="dense">
+      <Toolbar variant="dense" className='justify-between'>
         <Typography className="font-freshman" variant="h6" color="inherit" component="div">
           BarnBoard
         </Typography>
+        <IconButton color='inherit' onClick={onAdd}><Add /></IconButton>
       </Toolbar>
     </AppBar>
     <TableContainer component={Paper}>
@@ -52,7 +53,6 @@ export function BouldersList() {
         </TableBody>
       </Table>
     </TableContainer>
-    <IconButton onClick={onAdd}><Add /></IconButton>
     <Dialog open={!!toDelete} onClose={() => setToDelete(null)}>
       <DialogTitle>Do you really want to delete "{toDelete?.name}" ?</DialogTitle>
       <DialogActions>
