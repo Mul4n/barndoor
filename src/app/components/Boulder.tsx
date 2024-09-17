@@ -51,7 +51,7 @@ export function Boulder({ id }: { id: string }) {
     <AppBar className={`${GRADE_COLORS[parseInt(boulder.grade)]} ${boulder.grade !== '5' ? 'text-white' : 'text-black'}`} position="static">
       <Toolbar variant="regular" className='justify-between'>
         <IconButton edge="start" color='inherit' onClick={handleBack}><ArrowBack /></IconButton>
-        <Typography variant="h5" color="inherit" component="div">
+        <Typography className="font-freshman" variant="h5" color="inherit" component="div">
           {`${boulder?.name}`}
         </Typography>
         {

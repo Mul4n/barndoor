@@ -6,12 +6,12 @@ export default function HoldPicker({ boulder, setBoulder, editMode }: { boulder:
     <div style={{
       backgroundSize: 'cover',
       backgroundImage: `url(${board.src})`,
-      height: `${756 / 719 * 100}vw`,
+      height: `${747 / 689 * 100}vw`,
       width: `100vw`
     }}>
       <div className='grid grid-cols-12 gap-0.5' style={{
         width: `100vw`,
-        height: `${540 / 756 * 100}%`,
+        height: `${538 / 756 * 100}%`,
       }}>
         {...Array(144).fill('').map((_, i) => <Hold key={`hold_${i}`} index={i.toString()} boulder={boulder} setBoulder={setBoulder} editMode={editMode} />)}
       </div >

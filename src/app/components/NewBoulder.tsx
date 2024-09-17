@@ -35,7 +35,7 @@ export function NewBoulder() {
     <AppBar position="static">
       <Toolbar variant="regular" className='justify-between'>
         <IconButton edge="start" color='inherit' onClick={handleBack}><ArrowBack /></IconButton>
-        <Typography variant="h4" color="inherit" component="div">
+        <Typography className="font-freshman" variant="h4" color="inherit" component="div">
           New Boulder
         </Typography>
         <IconButton disabled={!canSave} edge='end' color='inherit' onClick={handleSave}><Save /></IconButton>

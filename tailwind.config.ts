@@ -11,6 +11,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        freshman: ['var(--font-freshman)'],
+      },
     },
   },
   plugins: [],

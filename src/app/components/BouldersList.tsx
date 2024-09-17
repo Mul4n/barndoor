@@ -38,7 +38,7 @@ export function BouldersList() {
   return (<>
     <AppBar position="static">
       <Toolbar variant="dense">
-        <Typography variant="h6" color="inherit" component="div">
+        <Typography className="font-freshman" variant="h6" color="inherit" component="div">
           BarnBoard
         </Typography>
       </Toolbar>
