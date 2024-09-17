@@ -1,0 +1,21 @@
+import board from '../images/board_adjusted.jpg';
+import Hold from "./Hold";
+
+export default function HoldPicker({ boulder, setBoulder, editMode }: { boulder: Boulder, setBoulder: React.Dispatch<React.SetStateAction<Boulder>>, editMode: boolean }) {
+  return (
+    <div style={{
+      backgroundSize: 'cover',
+      backgroundImage: `url(${board.src})`,
+      height: `${756 / 719 * 100}vw`,
+      width: `100vw`
+    }}>
+      <div className='grid grid-cols-12 gap-0.5' style={{
+        width: `100vw`,
+        height: `${540 / 756 * 100}%`,
+      }}>
+        {...Array(144).fill('').map((_, i) => <Hold key={`hold_${i}`} index={i.toString()} boulder={boulder} setBoulder={setBoulder} editMode={editMode} />)}
+      </div >
+      <div></div>
+    </div >
+  );
+}

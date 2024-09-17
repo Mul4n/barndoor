@@ -1,12 +1,9 @@
 'use client';
 
-import { BouldersProvider } from "@/app/reducers/BouldersContext";
 import { Boulder } from "@/app/components/Boulder";
 
-export default function BoulderPage({ params: { id } }) {
+export default function BoulderPage({ params: { id } }: { params: { id: string } }) {
   return (
-    <BouldersProvider>
-      <Boulder id={id} />
-    </ BouldersProvider>
+    <Boulder id={id} />
   );
 }

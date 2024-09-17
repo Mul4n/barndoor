@@ -1,7 +1,15 @@
 interface Boulder {
   name: string,
   grade: string,
-  id: string,
+  _id: string,
+  holds: {
+    [key: string]: number
+  }
+}
+
+interface NewBoulder {
+  name: string,
+  grade: string,
   holds: {
     [key: string]: number
   }
@@ -9,5 +17,6 @@ interface Boulder {
 
 interface Action {
   type: string,
-  boulder: Boulder
+  boulder?: Boulder,
+  boulders?: Boulder[]
 }
