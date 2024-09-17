@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { AppBar, Icon, IconButton, TextField, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from "@mui/material";
 import { ArrowBack, Save } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-import { GRADE_COLORS, } from '../constants.js';
+import { GRADE_COLORS, } from '../constants';
 import HoldPicker from "./HoldPicker";
 
 export function NewBoulder() {

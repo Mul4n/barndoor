@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import { ArrowBack, Edit, Save } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-import { GRADE_COLORS, HOLDS_COLORS } from '../constants.js';
+import { GRADE_COLORS } from '../constants';
 import HoldPicker from "./HoldPicker";
 
 export function Boulder({ id }: { id: string }) {
@@ -62,7 +62,7 @@ export function Boulder({ id }: { id: string }) {
       </Toolbar>
     </AppBar>
 
-    <HoldPicker boulder={boulder} setBoulder={setBoulder} editMode={editMode} />
+    <HoldPicker boulder={boulder} setBoulder={setBoulder as Dispatch<SetStateAction<Boulder | NewBoulder>>} editMode={editMode} />
   </>);
 }
 // 540px from top to bottom of the non-kicker panel

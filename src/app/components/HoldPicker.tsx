@@ -1,7 +1,7 @@
 import board from '../images/board_adjusted.jpg';
 import Hold from "./Hold";
 
-export default function HoldPicker({ boulder, setBoulder, editMode }: { boulder: Boulder, setBoulder: React.Dispatch<React.SetStateAction<Boulder>>, editMode: boolean }) {
+export default function HoldPicker({ boulder, setBoulder, editMode }: { boulder: Boulder | NewBoulder, setBoulder: React.Dispatch<React.SetStateAction<Boulder | NewBoulder>>, editMode: boolean }) {
   return (
     <div style={{
       backgroundSize: 'cover',

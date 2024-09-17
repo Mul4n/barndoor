@@ -3,7 +3,7 @@ interface Boulder {
   grade: string,
   _id: string,
   holds: {
-    [key: string]: number
+    [key: string]: string
   }
 }
 
@@ -11,7 +11,7 @@ interface NewBoulder {
   name: string,
   grade: string,
   holds: {
-    [key: string]: number
+    [key: string]: string
   }
 }
 
