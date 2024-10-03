@@ -1,16 +1,17 @@
 
-import { AppBar, Button, Dialog, DialogActions, DialogTitle, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Dialog, DialogActions, DialogTitle, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Toolbar, Typography } from '@mui/material';
 import { Add, Delete, Edit } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { GRADE_COLORS } from '../constants';
+import { BoulderType } from '../interfaces';
 
 export function BouldersList() {
-  const [boulders, setBoulders] = useState<Boulder[]>([]);
-  const [toDelete, setToDelete] = useState<Boulder | null>(null);
+  const [boulders, setBoulders] = useState<BoulderType[]>([]);
+  const [toDelete, setToDelete] = useState<BoulderType | null>(null);
   useEffect(() => {
     const fetchBoulders = async () => {
-      const { data: boulders } = await (await fetch('http://localhost:7668/boulders')).json() as { data: Boulder[] };
+      const { data: boulders } = await (await fetch('http://localhost:7668/boulders')).json() as { data: BoulderType[] };
       setBoulders(boulders);
     };
     fetchBoulders();
@@ -19,7 +20,7 @@ export function BouldersList() {
   const router = useRouter();
 
   const onDelete = async (id: string) => {
-    const { data } = await (await fetch(
+    await (await fetch(
       `http://localhost:7668/boulders/${id}`,
       {
         method: 'DELETE',
@@ -54,16 +55,16 @@ export function BouldersList() {
       </Table>
     </TableContainer>
     <Dialog open={!!toDelete} onClose={() => setToDelete(null)}>
-      <DialogTitle>Do you really want to delete "{toDelete?.name}" ?</DialogTitle>
+      <DialogTitle>Do you really want to delete &quot;{toDelete?.name}&quot; ?</DialogTitle>
       <DialogActions>
-        <Button onClick={() => { onDelete((toDelete as Boulder)._id); setToDelete(null); }}>Delete</Button>
+        <Button onClick={() => { onDelete((toDelete as BoulderType)._id); setToDelete(null); }}>Delete</Button>
         <Button onClick={() => { setToDelete(null); }}>Cancel</Button>
       </DialogActions>
     </Dialog>
   </>);
 }
 
-function BoulderHeader({ boulder, onDelete }: { boulder: Boulder, onDelete: Function }) {
+function BoulderHeader({ boulder, onDelete }: { boulder: BoulderType, onDelete: Dispatch<SetStateAction<BoulderType | null>> }) {
   const { name, grade, _id } = boulder;
   const router = useRouter();
 

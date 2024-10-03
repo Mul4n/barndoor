@@ -6,10 +6,11 @@ import { ArrowBack, Save } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import { GRADE_COLORS, } from '../constants';
 import HoldPicker from "./HoldPicker";
+import { NewBoulderType } from "../interfaces";
 
 export function NewBoulder() {
   const router = useRouter();
-  const [newBoulder, setNewBoulder] = useState<NewBoulder>({
+  const [newBoulder, setNewBoulder] = useState<NewBoulderType>({
     name: '',
     grade: "",
     holds: {}

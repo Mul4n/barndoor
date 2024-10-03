@@ -7,12 +7,13 @@ import { ArrowBack, Edit, Save } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import { GRADE_COLORS } from '../constants';
 import HoldPicker from "./HoldPicker";
+import { BoulderType, NewBoulderType } from "../interfaces";
 
 export function Boulder({ id }: { id: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const editMode = searchParams.has('edit');
-  const [boulder, setBoulder] = useState<Boulder>({
+  const [boulder, setBoulder] = useState<BoulderType>({
     _id: '',
     name: '',
     grade: "",
@@ -21,11 +22,11 @@ export function Boulder({ id }: { id: string }) {
 
   useEffect(() => {
     const fetchBoulders = async () => {
-      const { data: boulder } = await (await fetch(`http://localhost:7668/boulders/${id}`)).json() as { data: Boulder };
+      const { data: boulder } = await (await fetch(`http://localhost:7668/boulders/${id}`)).json() as { data: BoulderType };
       setBoulder(boulder);
     };
     fetchBoulders();
-  }, []);
+  }, [id]);
 
   if (!boulder) {
     return (<>Whoops not a known boulder</>);
@@ -33,7 +34,7 @@ export function Boulder({ id }: { id: string }) {
 
   const handleSave = async () => {
     const body = JSON.stringify(boulder);
-    const { data } = await (await fetch(
+    await (await fetch(
       `http://localhost:7668/boulders/${id}`,
       {
         method: 'PUT',
@@ -62,7 +63,7 @@ export function Boulder({ id }: { id: string }) {
       </Toolbar>
     </AppBar>
 
-    <HoldPicker boulder={boulder} setBoulder={setBoulder as Dispatch<SetStateAction<Boulder | NewBoulder>>} editMode={editMode} />
+    <HoldPicker boulder={boulder} setBoulder={setBoulder as Dispatch<SetStateAction<BoulderType | NewBoulderType>>} editMode={editMode} />
   </>);
 }
 // 540px from top to bottom of the non-kicker panel

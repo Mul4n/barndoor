@@ -1,1 +1,6 @@
-Permettre d'edit la difficulté
+Setup wlan1 on boot
+Setup mongo on pi
+Setup autostart for barndoor and barnshed
+
+https://nextjs.org/docs/app/api-reference/next-config-js/output#automatically-copying-traced-files
+Standalone setup to keep pi from burning ?

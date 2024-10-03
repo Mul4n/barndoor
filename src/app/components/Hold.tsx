@@ -1,6 +1,7 @@
 import { HOLDS_COLORS } from "../constants";
+import { BoulderType, NewBoulderType } from "../interfaces";
 
-export default function Hold({ index, boulder, setBoulder, editMode }: { index: string, boulder: Boulder | NewBoulder, setBoulder: React.Dispatch<React.SetStateAction<Boulder | NewBoulder>>, editMode: boolean }) {
+export default function Hold({ index, boulder, setBoulder, editMode }: { index: string, boulder: BoulderType | NewBoulderType, setBoulder: React.Dispatch<React.SetStateAction<BoulderType | NewBoulderType>>, editMode: boolean }) {
   const handleHoldClick = () => {
     if (!editMode) return;
     // on click, we iterate over the start/hand/end colors, if we go back to 0, delete the hold from the boulder

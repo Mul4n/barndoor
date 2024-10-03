@@ -1,4 +1,4 @@
-interface Boulder {
+export interface BoulderType {
   name: string,
   grade: string,
   _id: string,
@@ -7,7 +7,7 @@ interface Boulder {
   }
 }
 
-interface NewBoulder {
+export interface NewBoulderType {
   name: string,
   grade: string,
   holds: {
@@ -15,8 +15,8 @@ interface NewBoulder {
   }
 }
 
-interface Action {
+export interface ActionType {
   type: string,
-  boulder?: Boulder,
-  boulders?: Boulder[]
+  boulder?: BoulderType,
+  boulders?: BoulderType[]
 }
