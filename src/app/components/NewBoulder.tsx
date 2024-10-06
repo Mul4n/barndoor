@@ -19,7 +19,7 @@ export function NewBoulder() {
   const canSave = newBoulder.name && newBoulder.grade && Object.keys(newBoulder.holds).length;
   const handleSave = async () => {
     const body = JSON.stringify(newBoulder);
-    const shedUrl = process.env.BARNSHED_URL;
+    const shedUrl = process.env.NEXT_PUBLIC_BARNSHED_URL;
     const { data: boulder } = await (await fetch(
       `${shedUrl}boulders/add`,
       {

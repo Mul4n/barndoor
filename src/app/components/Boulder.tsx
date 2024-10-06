@@ -22,7 +22,7 @@ export function Boulder({ id }: { id: string }) {
 
   useEffect(() => {
     const fetchBoulders = async () => {
-      const shedUrl = process.env.BARNSHED_URL;
+      const shedUrl = process.env.NEXT_PUBLIC_BARNSHED_URL;
       const { data: boulder } = await (await fetch(`${shedUrl}boulders/${id}`)).json() as { data: BoulderType };
       setBoulder(boulder);
     };
@@ -35,7 +35,7 @@ export function Boulder({ id }: { id: string }) {
 
   const handleSave = async () => {
     const body = JSON.stringify(boulder);
-    const shedUrl = process.env.BARNSHED_URL;
+    const shedUrl = process.env.NEXT_PUBLIC_BARNSHED_URL;
     await (await fetch(
       `${shedUrl}boulders/${id}`,
       {
