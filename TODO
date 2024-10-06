@@ -6,5 +6,10 @@ Setup autostart for barndoor and barnshed (pm2 on boot ?)
 Setup full hardware stack
 Setup api to convert hold position to led position
 
-Setup barnshed on nginx to be accessible
 Setup conf file for prod and dev urls
+
+
+for it to work:
+cp barndoor static to /var/www/barndoor/static
+
+Setup auto build on commit/push and add .next/standalone and .next/static

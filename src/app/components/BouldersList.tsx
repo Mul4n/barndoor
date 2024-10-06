@@ -11,7 +11,8 @@ export function BouldersList() {
   const [toDelete, setToDelete] = useState<BoulderType | null>(null);
   useEffect(() => {
     const fetchBoulders = async () => {
-      const { data: boulders } = await (await fetch('http://localhost:7668/boulders')).json() as { data: BoulderType[] };
+      const shedUrl = process.env.BARNSHED_URL;
+      const { data: boulders } = await (await fetch(`${shedUrl}boulders`)).json() as { data: BoulderType[] };
       setBoulders(boulders);
     };
     fetchBoulders();
@@ -20,8 +21,9 @@ export function BouldersList() {
   const router = useRouter();
 
   const onDelete = async (id: string) => {
+    const shedUrl = process.env.BARNSHED_URL;
     await (await fetch(
-      `http://localhost:7668/boulders/${id}`,
+      `${shedUrl}/boulders/${id}`,
       {
         method: 'DELETE',
         headers: {
