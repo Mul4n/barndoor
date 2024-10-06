@@ -1,9 +1,10 @@
 Setup wlan1 on boot
-Setup mongo on pi
-Setup autostart for barndoor and barnshed
 
-https://nextjs.org/docs/app/api-reference/next-config-js/output#automatically-copying-traced-files
-Standalone setup to keep pi from burning ?
+Fetch github on boot
+Setup autostart for barndoor and barnshed (pm2 on boot ?)
 
 Setup full hardware stack
 Setup api to convert hold position to led position
+
+Setup barnshed on nginx to be accessible
+Setup conf file for prod and dev urls
