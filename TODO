@@ -4,3 +4,6 @@ Setup autostart for barndoor and barnshed
 
 https://nextjs.org/docs/app/api-reference/next-config-js/output#automatically-copying-traced-files
 Standalone setup to keep pi from burning ?
+
+Setup full hardware stack
+Setup api to convert hold position to led position
