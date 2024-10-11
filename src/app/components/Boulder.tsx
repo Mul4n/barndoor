@@ -21,12 +21,14 @@ export function Boulder({ id }: { id: string }) {
   });
 
   useEffect(() => {
-    const fetchBoulders = async () => {
+    const fetchBoulder = async () => {
       const shedUrl = process.env.NEXT_PUBLIC_BARNSHED_URL;
       const { data: boulder } = await (await fetch(`${shedUrl}boulders/${id}`)).json() as { data: BoulderType };
       setBoulder(boulder);
+
+      fetch(`${shedUrl}leds/on/${id}`);
     };
-    fetchBoulders();
+    fetchBoulder();
   }, [id]);
 
   if (!boulder) {

@@ -1,12 +1,14 @@
 
 import { AppBar, Button, Dialog, DialogActions, DialogTitle, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Toolbar, Typography } from '@mui/material';
-import { Add, Delete, Edit } from '@mui/icons-material';
+import { Add, Delete, Edit, FlashlightOff } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { GRADE_COLORS } from '../constants';
 import { BoulderType } from '../interfaces';
 
 export function BouldersList() {
+  const shedUrl = process.env.NEXT_PUBLIC_BARNSHED_URL;
+
   const [boulders, setBoulders] = useState<BoulderType[]>([]);
   const [toDelete, setToDelete] = useState<BoulderType | null>(null);
   useEffect(() => {
@@ -21,7 +23,6 @@ export function BouldersList() {
   const router = useRouter();
 
   const onDelete = async (id: string) => {
-    const shedUrl = process.env.NEXT_PUBLIC_BARNSHED_URL;
     await (await fetch(
       `${shedUrl}/boulders/${id}`,
       {
@@ -38,13 +39,20 @@ export function BouldersList() {
     router.push('/boulder/new');
   }
 
+  const onLightsOff = () => {
+    fetch(`${shedUrl}leds/off`)
+  }
+
   return (<>
     <AppBar position="static">
       <Toolbar variant="dense" className='justify-between'>
         <Typography className="font-freshman" variant="h6" color="inherit" component="div">
           BarnBoard
         </Typography>
-        <IconButton color='inherit' onClick={onAdd}><Add /></IconButton>
+        <div>
+          <IconButton color='inherit' onClick={onAdd}><Add /></IconButton>
+          <IconButton color='inherit' onClick={onLightsOff}><FlashlightOff /></IconButton>
+        </div>
       </Toolbar>
     </AppBar>
     <TableContainer component={Paper}>
