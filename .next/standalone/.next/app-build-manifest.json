@@ -15,13 +15,15 @@
       "static/css/0725909f2b65114c.css",
       "static/chunks/app/layout-671b880ca073e3a7.js"
     ],
-    "/boulder/[id]/page": [
+    "/page": [
       "static/chunks/webpack-40de2d96803d0e46.js",
       "static/chunks/fd9d1056-90960e0a7e77703c.js",
       "static/chunks/23-10808a8493cd74e1.js",
       "static/chunks/main-app-a54317b58f25412c.js",
       "static/chunks/88-1354c9d7985d16bd.js",
-      "static/chunks/app/boulder/[id]/page-815858d453b34ed0.js"
+      "static/chunks/194-3ed001a08fe2db82.js",
+      "static/chunks/316-9902f773ecb3ba18.js",
+      "static/chunks/app/page-6f90982972c6c5b5.js"
     ],
     "/boulder/new/page": [
       "static/chunks/webpack-40de2d96803d0e46.js",
@@ -31,17 +33,15 @@
       "static/chunks/88-1354c9d7985d16bd.js",
       "static/chunks/194-3ed001a08fe2db82.js",
       "static/chunks/607-45806dd818db61e1.js",
-      "static/chunks/app/boulder/new/page-5ad41480860775f1.js"
+      "static/chunks/app/boulder/new/page-c6cbcda62c7308bc.js"
     ],
-    "/page": [
+    "/boulder/[id]/page": [
       "static/chunks/webpack-40de2d96803d0e46.js",
       "static/chunks/fd9d1056-90960e0a7e77703c.js",
       "static/chunks/23-10808a8493cd74e1.js",
       "static/chunks/main-app-a54317b58f25412c.js",
       "static/chunks/88-1354c9d7985d16bd.js",
-      "static/chunks/194-3ed001a08fe2db82.js",
-      "static/chunks/316-9902f773ecb3ba18.js",
-      "static/chunks/app/page-d2dd1e50eb04026e.js"
+      "static/chunks/app/boulder/[id]/page-c8ebdb146bbd1501.js"
     ]
   }
 }

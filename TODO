@@ -1,22 +1,10 @@
-Setup wlan1 on boot
-
-Fetch github on boot
-Setup autostart for barndoor and barnshed (pm2 on boot with good names)
-
-Setup full hardware stack
-Setup api to convert hold position to led position
-
-Setup conf file for prod and dev urls
-
-
 for it to work:
 git fetch
 git reset origin/main --hard
 cp barndoor .next/static to /var/www/barndoor/static
 cp .env to .next/standalone/
+Setup auto build on commit/push and add .next/standalone and .next/static
 
 be sure pm2 runs for both apps, be sure mongo runs
 
-
-Setup auto build on commit/push and add .next/standalone and .next/static
-Rename raspberrypi.local to barnboard.local
+AUTO BUILD ON PUSH
