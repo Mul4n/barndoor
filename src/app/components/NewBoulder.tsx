@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { AppBar, Icon, IconButton, TextField, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from "@mui/material";
 import { ArrowBack, Save } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
@@ -9,12 +9,25 @@ import HoldPicker from "./HoldPicker";
 import { NewBoulderType } from "../interfaces";
 
 export function NewBoulder() {
+  const shedUrl = process.env.NEXT_PUBLIC_BARNSHED_URL;
   const router = useRouter();
   const [newBoulder, setNewBoulder] = useState<NewBoulderType>({
     name: '',
     grade: "",
     holds: {}
   })
+
+  const handleHoldChange = (boulder: NewBoulderType) => {
+    fetch(`${shedUrl}leds/on`, {
+      method: 'POST',
+      body: JSON.stringify(boulder),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    setNewBoulder(boulder);
+  }
 
   const canSave = newBoulder.name && newBoulder.grade && Object.keys(newBoulder.holds).length;
   const handleSave = async () => {
@@ -57,7 +70,7 @@ export function NewBoulder() {
         </ToggleButtonGroup>
       </div>
     </div>
-    <HoldPicker boulder={newBoulder} setBoulder={setNewBoulder} editMode={true} />
+    <HoldPicker boulder={newBoulder} setBoulder={handleHoldChange as Dispatch<SetStateAction<NewBoulderType>>} editMode={true} />
   </>);
 }
 // 540px from top to bottom of the non-kicker panel

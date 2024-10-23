@@ -8,3 +8,18 @@ Setup auto build on commit/push and add .next/standalone and .next/static
 be sure pm2 runs for both apps, be sure mongo runs
 
 AUTO BUILD ON PUSH
+
+List every thing we remember on README.md in case the pi burnsdown
+hostname barnboard
+setup hotspot and wifi
+setup pm2 startup
+setup fetch script on boot
+
+
+barnshed
+properly shutdown leds on app stop
+Add proper logs
+
+
+barndoor
+css is fucked up in prod
