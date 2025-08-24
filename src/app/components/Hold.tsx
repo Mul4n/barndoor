@@ -17,5 +17,5 @@ export default function Hold({ index, boulder, setBoulder, editMode }: { index: 
   return (<div
     className={` ${HOLDS_COLORS[boulder.holds[`${index}`]]}`}
     onClick={handleHoldClick}
-  >{index}</div>)
+  />)
 }
